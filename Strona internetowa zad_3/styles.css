@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header nav {
+    background-color: #4CAF50; /* Jednolity kolor dla stopki i menu */
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: inset 0 -5px 5px -5px #000; /* Cień do wewnątrz */
+    z-index: 1000;
+}
+
+header nav h1 {
+    display: inline;
+    margin-left: 20px;
+}
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+    margin-right: 20px;
+}
+
+header nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding-top: 70px;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    background-color: #e0e0e0; /* Jasne, ale nie białe tło */
+    border-radius: 10px;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+    font-family: 'Georgia', serif; /* Różna czcionka dla nagłówków */
+}
+
+p {
+    font-family: Arial, sans-serif; /* Różna czcionka dla tekstu ciągłego */
+}
+
+img {
+    display: block;
+    margin-top: 20px;
+    border-radius: 15px; /* Zaokrąglone grafiki */
+    max-width: 100%;
+    height: auto;
+}
+
+footer {
+    background-color: #4CAF50; /* Jednolity kolor dla stopki i menu */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
