@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podgatunki Królików</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Hodowla Królików</h1>
+            <ul>
+                <li><a href="index.html">Strona Główna</a></li>
+                <li><a href="podgatunki.html">Podgatunki</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Podgatunki Królików</h2>
+            <h3>Królik Karzełek Niderlandzki</h3>
+            <p>Królik Karzełek Niderlandzki jest jednym z najmniejszych podgatunków królików. Znany jest ze swojego energicznego i ciekawskiego charakteru, a także małego rozmiaru, który sprawia, że jest idealnym zwierzęciem domowym.</p>
+            <img src="images/rabbit5.jfif" alt="Królik Karzełek Niderlandzki">
+            
+            <h3>Królik Rex</h3>
+            <p>Królik Rex wyróżnia się krótką, aksamitną sierścią i spokojnym usposobieniem. Jest często hodowany ze względu na swoją unikalną sierść oraz łagodny charakter, co czyni go idealnym towarzyszem dla rodzin z dziećmi.</p>
+            <img src="images/rabbit6.jfif" alt="Królik Rex">
+            
+            <h3>Królik Baran Francuski</h3>
+            <p>Królik Baran Francuski jest większym podgatunkiem, znanym ze swoich długich, zwisających uszu i masywnej budowy ciała. Jest łagodny i przyjazny, a jego wygląd sprawia, że jest bardzo popularny wśród hodowców.</p>
+            <img src="images/rabbit7.jfif" alt="Królik Baran Francuski">
+        </section>
+        
+        <section>
+            <h2>Dane o Zwierzętach Użytkowników</h2>
+            <table id="animalTable">
+                <thead>
+                    <tr>
+                        <th>Imię</th>
+                        <th>Podgatunek</th>
+                        <th>Wiek</th>
+                        <th>Kolor Sierści</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fluffy</td>
+                        <td>Królik Karzełek Niderlandzki</td>
+                        <td>2 lata</td>
+                        <td>Biały</td>
+                    </tr>
+                    <tr>
+                        <td>Rex</td>
+                        <td>Królik Rex</td>
+                        <td>3 lata</td>
+                        <td>Szary</td>
+                    </tr>
+                    <tr>
+                        <td>Barney</td>
+                        <td>Królik Baran Francuski</td>
+                        <td>1 rok</td>
+                        <td>Brązowy</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Dodaj Nowego Królika</h2>
+            <form id="addAnimalForm">
+                <label for="name">Imię:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="breed">Podgatunek:</label>
+                <input type="text" id="breed" name="breed" required>
+                
+                <label for="age">Wiek:</label>
+                <input type="number" id="age" name="age" required min="0">
+                
+                <label for="color">Kolor Sierści:</label>
+                <input type="text" id="color" name="color" required>
+                
+                <button type="submit">Dodaj</button>
+                <div id="formFeedback"></div>
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Autor: Valentyn Tkachenko</p>
+        <p>Data rozpoczęcia pracy: 13 07 2024</p>
+    </footer>
+
+    <script>
+        document.getElementById('addAnimalForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const breed = document.getElementById('breed').value;
+            const age = document.getElementById('age').value;
+            const color = document.getElementById('color').value;
+            
+            if (name === '' || breed === '' || age === '' || color === '') {
+                document.getElementById('formFeedback').textContent = 'Wszystkie pola są wymagane!';
+                document.getElementById('formFeedback').style.color = 'red';
+                return;
+            }
+
+            const ageValue = parseInt(age);
+            if (isNaN(ageValue) || ageValue < 0) {
+                document.getElementById('formFeedback').textContent = 'Wiek musi być nieujemną liczbą!';
+                document.getElementById('formFeedback').style.color = 'red';
+                return;
+            }
+            
+            const table = document.getElementById('animalTable').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+            
+            const nameCell = newRow.insertCell(0);
+            const breedCell = newRow.insertCell(1);
+            const ageCell = newRow.insertCell(2);
+            const colorCell = newRow.insertCell(3);
+            
+            nameCell.textContent = name;
+            breedCell.textContent = breed;
+            ageCell.textContent = age;
+            colorCell.textContent = color;
+            
+            document.getElementById('formFeedback').textContent = 'Królik został dodany!';
+            document.getElementById('formFeedback').style.color = 'green';
+            
+            document.getElementById('addAnimalForm').reset();
+        });
+    </script>
+</body>
+</html>
